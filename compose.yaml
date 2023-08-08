@@ -24,42 +24,25 @@ services:
     image: "${COSMOS_REGISTRY}/ballaerospace/cosmosc2-minio:${COSMOS_TAG}"
     volumes:
       - "cosmos-minio-v:/data"
-      - "./cacert.pem:/devel/cacert.pem"
     command: ["server", "/data"]
     restart: "unless-stopped"
     environment:
       MINIO_ROOT_USER: "${COSMOS_MINIO_USERNAME}"
       MINIO_ROOT_PASSWORD: "${COSMOS_MINIO_PASSWORD}"
-      SSL_CERT_FILE: "/devel/cacert.pem"
-      CURL_CA_BUNDLE: "/devel/cacert.pem"
-      REQUESTS_CA_BUNDLE: "/devel/cacert.pem"
-      NODE_EXTRA_CA_CERTS: "/devel/cacert.pem"
 
   cosmos-redis:
     image: "${COSMOS_REGISTRY}/ballaerospace/cosmosc2-redis:${COSMOS_TAG}"
     volumes:
       - "cosmos-redis-v:/data"
-      - "./cacert.pem:/devel/cacert.pem"
       - "./cosmos-redis/users.acl:/config/users.acl"
     restart: "unless-stopped"
-    environment:
-      SSL_CERT_FILE: "/devel/cacert.pem"
-      CURL_CA_BUNDLE: "/devel/cacert.pem"
-      REQUESTS_CA_BUNDLE: "/devel/cacert.pem"
-      NODE_EXTRA_CA_CERTS: "/devel/cacert.pem"
 
   cosmos-redis-ephemeral:
     image: "${COSMOS_REGISTRY}/ballaerospace/cosmosc2-redis:${COSMOS_TAG}"
     volumes:
-      - "./cacert.pem:/devel/cacert.pem"
       - "./cosmos-redis/users.acl:/config/users.acl"
     restart: "unless-stopped"
     command: ["redis-server", "/config/redis_ephemeral.conf"]
-    environment:
-      SSL_CERT_FILE: "/devel/cacert.pem"
-      CURL_CA_BUNDLE: "/devel/cacert.pem"
-      REQUESTS_CA_BUNDLE: "/devel/cacert.pem"
-      NODE_EXTRA_CA_CERTS: "/devel/cacert.pem"
 
   cosmos-cmd-tlm-api:
     image: "${COSMOS_REGISTRY}/ballaerospace/cosmosc2-cmd-tlm-api:${COSMOS_TAG}"
@@ -70,7 +53,6 @@ services:
       - "cosmos-minio"
     volumes:
       - "cosmos-gems-v:/gems"
-      - "./cacert.pem:/devel/cacert.pem"
     environment:
       - "RAILS_ENV=production"
       - "GEM_HOME=/gems"
@@ -86,7 +68,6 @@ services:
       - "cosmos-minio"
     volumes:
       - "cosmos-gems-v:/gems:ro"
-      - "./cacert.pem:/devel/cacert.pem"
     environment:
       - "RAILS_ENV=production"
       - "GEM_HOME=/gems"
@@ -102,7 +83,6 @@ services:
       - "cosmos-minio"
     volumes:
       - "cosmos-gems-v:/gems:ro"
-      #- ./cacert.pem:/devel/cacert.pem
       # Add access to the entire C drive on Windows
       # - "/c:/c"
     environment:
@@ -115,7 +95,6 @@ services:
   cosmos-traefik:
     image: "${COSMOS_REGISTRY}/ballaerospace/cosmosc2-traefik:${COSMOS_TAG}"
     volumes:
-      - "./cacert.pem:/devel/cacert.pem"
       - "./cosmos-traefik/traefik.yaml:/etc/traefik/traefik.yaml"
       # - "./cosmos-traefik/traefik-allow-http.yaml:/etc/traefik/traefik.yaml"
       # - "./cosmos-traefik/traefik-ssl.yaml:/etc/traefik/traefik.yaml"
@@ -132,11 +111,6 @@ services:
       - "cosmos-redis"
       - "cosmos-redis-ephemeral"
       - "cosmos-minio"
-    environment:
-      SSL_CERT_FILE: "/devel/cacert.pem"
-      CURL_CA_BUNDLE: "/devel/cacert.pem"
-      REQUESTS_CA_BUNDLE: "/devel/cacert.pem"
-      NODE_EXTRA_CA_CERTS: "/devel/cacert.pem"
 
   cosmos-init:
     image: "${COSMOS_REGISTRY}/ballaerospace/cosmosc2-init:${COSMOS_TAG}"
@@ -148,7 +122,6 @@ services:
       - "cosmos-minio"
     volumes:
       - "cosmos-gems-v:/gems"
-      - "./cacert.pem:/devel/cacert.pem"
     environment:
       - "GEM_HOME=/gems"
     env_file:
