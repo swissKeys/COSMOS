@@ -1,0 +1,47 @@
+TELEMETRY BNO055 EULER_ORIENTATION BIG_ENDIAN "Euler angles from BNO055 sensor"
+  # Keyword            Name  BitSize Type   ID Description
+  APPEND_ID_ITEM    SENSOR_ID    16 INT 1 "BNO055 Sensor Identifier"
+  APPEND_ITEM       EULER_ROLL   32 FLOAT "Roll angle (degrees)"
+  APPEND_ITEM       EULER_PITCH  32 FLOAT "Pitch angle (degrees)"
+  APPEND_ITEM       EULER_YAW    32 FLOAT "Yaw angle (degrees)"
+
+TELEMETRY BNO055 QUATERNION_ORIENTATION BIG_ENDIAN "Quaternion data from BNO055 sensor"
+  APPEND_ID_ITEM    SENSOR_ID  16 INT 2 "BNO055 Sensor Identifier"
+  APPEND_ITEM       QUATERNION_W 32 FLOAT "Quaternion W component"
+  APPEND_ITEM       QUATERNION_X 32 FLOAT "Quaternion X component"
+  APPEND_ITEM       QUATERNION_Y 32 FLOAT "Quaternion Y component"
+  APPEND_ITEM       QUATERNION_Z 32 FLOAT "Quaternion Z component"
+
+TELEMETRY BNO055 ANGULAR_VELOCITY BIG_ENDIAN "Angular velocity from BNO055 sensor"
+  APPEND_ID_ITEM    SENSOR_ID  16 INT 3 "BNO055 Sensor Identifier"
+  APPEND_ITEM       ANGULAR_VELOCITY_X 32 FLOAT "Angular velocity X axis (rad/s)"
+  APPEND_ITEM       ANGULAR_VELOCITY_Y 32 FLOAT "Angular velocity Y axis (rad/s)"
+  APPEND_ITEM       ANGULAR_VELOCITY_Z 32 FLOAT "Angular velocity Z axis (rad/s)"
+
+TELEMETRY BNO055 ACCELERATION BIG_ENDIAN "Acceleration data from BNO055 sensor"
+  APPEND_ID_ITEM    SENSOR_ID  16 INT 4 "BNO055 Sensor Identifier"
+  APPEND_ITEM       ACCELERATION_X 32 FLOAT "Acceleration X axis (m/s^2)"
+  APPEND_ITEM       ACCELERATION_Y 32 FLOAT "Acceleration Y axis (m/s^2)"
+  APPEND_ITEM       ACCELERATION_Z 32 FLOAT "Acceleration Z axis (m/s^2)"
+
+TELEMETRY BNO055 MAGNETIC_FIELD BIG_ENDIAN "Magnetic field data from BNO055 sensor"
+  APPEND_ID_ITEM    SENSOR_ID  16 INT 5 "BNO055 Sensor Identifier"
+  APPEND_ITEM       MAGNETIC_FIELD_X 32 FLOAT "Magnetic field X axis (uT)"
+  APPEND_ITEM       MAGNETIC_FIELD_Y 32 FLOAT "Magnetic field Y axis (uT)"
+  APPEND_ITEM       MAGNETIC_FIELD_Z 32 FLOAT "Magnetic field Z axis (uT)"
+
+TELEMETRY BNO055 LINEAR_ACCELERATION BIG_ENDIAN "Linear acceleration data from BNO055 sensor"
+  APPEND_ID_ITEM    SENSOR_ID  16 INT 6 "BNO055 Sensor Identifier"
+  APPEND_ITEM       LINEAR_ACCEL_X 32 FLOAT "Linear acceleration X axis (m/s^2)"
+  APPEND_ITEM       LINEAR_ACCEL_Y 32 FLOAT "Linear acceleration Y axis (m/s^2)"
+  APPEND_ITEM       LINEAR_ACCEL_Z 32 FLOAT "Linear acceleration Z axis (m/s^2)"
+
+TELEMETRY BNO055 GRAVITY_VECTOR BIG_ENDIAN "Gravity data from BNO055 sensor"
+  APPEND_ID_ITEM    SENSOR_ID  16 INT 7 "BNO055 Sensor Identifier"
+  APPEND_ITEM       GRAVITY_VECTOR_X 32 FLOAT "Gravity X axis (m/s^2)"
+  APPEND_ITEM       GRAVITY_VECTOR_Y 32 FLOAT "Gravity Y axis (m/s^2)"
+  APPEND_ITEM       GRAVITY_VECTOR_Z 32 FLOAT "Gravity Z axis (m/s^2)"
+
+TELEMETRY BNO055 TEMPERATURE BIG_ENDIAN "Temperature data from BNO055 sensor"
+  APPEND_ID_ITEM    SENSOR_ID  16 INT  8 "BNO055 Sensor Identifier"
+  APPEND_ITEM       TEMPERATURE 32 FLOAT "Temperature in degrees Celsius"

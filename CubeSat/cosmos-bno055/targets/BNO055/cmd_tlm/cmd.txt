@@ -1,0 +1,5 @@
+COMMAND BNO055 EXAMPLE BIG_ENDIAN "Packet description"
+  # Keyword           Name  BitSize Type   Min Max  Default  Description
+  APPEND_ID_PARAMETER ID    16      INT    1   1    1        "Identifier"
+  APPEND_PARAMETER    Voltage 32    FLOAT  0   5    0      "Volatge output"
+  

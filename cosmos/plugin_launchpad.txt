@@ -1,0 +1,15 @@
+VARIABLE bno055_target_name BNO055
+
+TARGET BNO055 <%= bno055_target_name %>
+INTERFACE <%= bno055_target_name %>_INT serial_interface.rb /dev/ttyUSB0 /dev/ttyUSB0 9600 NONE 1 10 10
+  MAP_TARGET <%= bno055_target_name %>
+
+#serial_interface.rb: Tells COSMOS to use a serial connection.
+
+#/dev/ttyUSB0: This is the device file for the serial connection (adjust as necessary based on your setup).
+
+#9600: This is the baud rate. You will need to know the appropriate baud rate for your sensor. (Adjust this as needed based on your sensor's requirements.)
+
+#NONE: This specifies no parity. This is a common configuration, but you should ensure it matches your sensor's requirements.
+
+#1: This is for one stop bit. Again, adjust based on your device's requirements.
