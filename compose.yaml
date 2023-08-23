@@ -102,8 +102,7 @@ services:
       # - "./cosmos-traefik/cert.key:/etc/traefik/cert.key"
       # - "./cosmos-traefik/cert.crt:/etc/traefik/cert.crt"
     ports:
-      - "127.0.0.1:2900:80"
-      - "127.0.0.1:2943:443"
+      - "2900:80"
       # - "80:80"
       # - "443:443"
     restart: "unless-stopped"
